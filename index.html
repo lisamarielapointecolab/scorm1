@@ -2,79 +2,12 @@
 <html>
 <head>
     <title>Mon Contenu SCORM</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        .header {
-            background: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .scorm-frame {
-            width: 100%;
-            height: 600px;
-            border: none;
-        }
-        .controls {
-            padding: 20px;
-            text-align: center;
-        }
-        .btn {
-            background: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 0 10px;
-        }
-        .btn:hover {
-            background: #45a049;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>🎮 Mon Contenu SCORM</h1>
-            <p>Hébergé sur GitHub Pages</p>
-        </div>
-        
-        <div class="controls">
-            <button class="btn" onclick="loadScorm()">▶️ Charger le contenu</button>
-            <button class="btn" onclick="reloadScorm()">🔄 Recharger</button>
-        </div>
-        
-        <iframe id="scorm-frame" class="scorm-frame" src=""></iframe>
-    </div>
-
     <script>
-        // API SCORM simplifiée (simulation)
+        // API SCORM simplifiée
         window.API_1484_11 = {
-            Initialize: function(param) {
-                console.log('SCORM: Initialize called');
-                return "true";
-            },
-            Terminate: function(param) {
-                console.log('SCORM: Terminate called');
-                return "true";
-            },
+            Initialize: function(param) { return "true"; },
+            Terminate: function(param) { return "true"; },
             GetValue: function(element) {
-                console.log('SCORM: GetValue called for', element);
-                // Valeurs par défaut
                 switch(element) {
                     case 'cmi.learner_id': return 'learner123';
                     case 'cmi.learner_name': return 'Utilisateur Test';
@@ -83,39 +16,18 @@
                     default: return '';
                 }
             },
-            SetValue: function(element, value) {
-                console.log('SCORM: SetValue called', element, '=', value);
-                return "true";
-            },
-            Commit: function(param) {
-                console.log('SCORM: Commit called');
-                return "true";
-            },
-            GetLastError: function() {
-                return "0";
-            },
-            GetErrorString: function(errorCode) {
-                return "No error";
-            },
-            GetDiagnostic: function(errorCode) {
-                return "";
-            }
+            SetValue: function(element, value) { return "true"; },
+            Commit: function(param) { return "true"; },
+            GetLastError: function() { return "0"; },
+            GetErrorString: function(errorCode) { return "No error"; },
+            GetDiagnostic: function(errorCode) { return ""; }
         };
 
-        function loadScorm() {
-            document.getElementById('scorm-frame').src = 'scorm-package/genially.html';
-            console.log('📚 Contenu SCORM chargé !');
-        }
-
-        function reloadScorm() {
-            const iframe = document.getElementById('scorm-frame');
-            iframe.src = iframe.src;
-            console.log('🔄 Contenu SCORM rechargé !');
-        }
-
-        // Message d'accueil
-        console.log('🎮 Lecteur SCORM simple prêt !');
-        console.log('📋 API SCORM simulée active');
+        // Redirection automatique vers le contenu SCORM
+        window.location.href = 'scorm-package/genially.html';
     </script>
+</head>
+<body>
+    <p>Chargement du contenu SCORM...</p>
 </body>
 </html>
