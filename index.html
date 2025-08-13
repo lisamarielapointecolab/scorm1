@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lecteur SCORM</title>
+    <script src="https://cdn.jsdelivr.net/npm/scorm-again@1.7.0/dist/scorm-again.min.js"></script>
+</head>
+<body>
+    <div id="scorm-content">
+        <iframe id="scorm-frame" src="" width="100%" height="600px"></iframe>
+    </div>
+    <script>
+        // Configuration de l'API SCORM
+        window.API_1484_11 = new SCORM2004API({
+            cmi: {
+                learner_id: 'user123',
+                learner_name: 'John Doe',
+                credit: 'credit',
+                mode: 'normal'
+            }
+        });
+        
+        // Charger le contenu SCORM
+        document.getElementById('scorm-frame').src = 'scorm-package/genially.html';
+    </script>
+</body>
+</html>
